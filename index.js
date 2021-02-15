@@ -14,7 +14,6 @@ app
    .post('/hook',line.middleware(config),(req,res)=> lineBot(req,res))
    .listen(PORT,()=>console.log(`Listening on ${PORT}`));
 
-   'ここから'
    const lineBot = (req,res) => {
       res.status(200).end();
       const events = req.body.events;
