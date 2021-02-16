@@ -21,11 +21,14 @@ app
       for(let i=0;i<events.length;i++){
           const ev = events[i];
           switch(ev.type){
-              case 'follow':
-                  promises.push(greeting_follow(ev));
-                  break;
-          }
-      }
+            case 'follow':
+                promises.push(greeting_follow(ev));
+                break;
+            
+            case 'message':
+                promises.push(handleMessageEvent(ev));
+                break;
+        }
       Promise
           .all(promises)
           .then(console.log('all promises passed'))
@@ -38,3 +41,12 @@ app
           "text":`${profile.displayName}さん、フォローありがとうございます\uDBC0\uDC04`
       });
    }
+   const handleMessageEvent = async (ev) => {
+    const profile = await client.getProfile(ev.source.userId);
+    const text = (ev.message.type === 'text') ? ev.message.text : '';
+    
+    return client.replyMessage(ev.replyToken,{
+        "type":"text",
+        "text":`${profile.displayName}さん、今${text}って言いました？言いました〜！きちんとした返事機能はまだ待ってね！`
+    });
+ }
