@@ -29,6 +29,7 @@ app
                 promises.push(handleMessageEvent(ev));
                 break;
         }
+    }
       Promise
           .all(promises)
           .then(console.log('all promises passed'))
@@ -47,6 +48,6 @@ app
     
     return client.replyMessage(ev.replyToken,{
         "type":"text",
-        "text":`${profile.displayName}さん、今${text}って言いました？言いました〜！きちんとした返事機能はまだ待ってね！`
+        "text":`${profile.displayName}さん、今${text}って言いました？`
     });
- }
+}
