@@ -38,8 +38,3 @@ app
           "text":`${profile.displayName}さん、フォローありがとうございます\uDBC0\uDC04`
       });
    }
-   profile: {
-      userId: 'xxxxxxxxxxxx',
-      displayName; 'あなたのLINE表示名',
-      language; 'ja'
-      }
