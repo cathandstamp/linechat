@@ -48,6 +48,6 @@ app
     
     return client.replyMessage(ev.replyToken,{
         "type":"text",
-        "text":`${profile.displayName}さん、今${text}って言いました？`
+        "text":`${profile.displayName}さん、${text}って聞こえました、まだ上手い返事できないんです。`
     });
 }
